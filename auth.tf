@@ -80,7 +80,7 @@ resource "aws_eks_access_policy_association" "map" {
     namespaces = local.access_entry_map[each.value.principal_arn].access_policy_associations[each.value.policy_arn].access_scope.namespaces
   }
 
-  depends_on = [ aws_eks_access_entry.map[*] ]
+  depends_on = [ aws_eks_access_entry.map ]
 }
 
 # We could combine all the list access entries into a single resource,
